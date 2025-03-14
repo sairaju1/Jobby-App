@@ -1,0 +1,50 @@
+.background-container{
+    background: linear-gradient(135deg, #dfc7f9, #2575fc);
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+}
+
+.card-container{
+    background-color: rgba(23, 9, 9, 0.1);
+    border-radius: 12px;
+    padding:20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    
+}
+
+.heading{
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.para{
+    font-size: 20px;
+    color:#e0e0e0;
+    text-align: center;
+}
+
+.button-1{
+    background-color: #e88158;
+    width: 120px;
+    height: 40px;
+    border-radius: 15px;
+    border:0px;
+    margin-right:15px;
+
+}
+
+.button-2{
+    background-color: #e88158;
+    width: 120px;
+    height: 40px;
+    border-radius: 15px;
+    border:0px;
+  
+}
