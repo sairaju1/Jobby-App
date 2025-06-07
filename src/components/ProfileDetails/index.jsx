@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+import { Link } from 'react-router-dom'
 import './index.css'
 
 const apiStatusConstants = {
@@ -55,7 +56,7 @@ class ProfileDetails extends Component {
     return (
       <div className="profile-container">
         <img src={profileImageUrl} alt="profile" className="profile-logo" />
-        <h1 className="name-heading">{name}</h1>
+        <h1 className="name-heading">Korra Mahendra</h1>
         <p className="bio">{shortBio}</p>
       </div>
     )

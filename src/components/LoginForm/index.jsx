@@ -1,7 +1,6 @@
 import {Component} from 'react'
-import Cookies from 'js-cookie'
 import {Navigate} from 'react-router-dom'
-
+import Cookies from 'js-cookie'
 import './index.css'
 
 class LoginForm extends Component {
@@ -10,6 +9,7 @@ class LoginForm extends Component {
     password: '',
     showSubmitError: false,
     errorMsg: '',
+    isLoggedIn: false,
   }
 
   onSubmitSuccess = jwtToken => {
@@ -17,7 +17,7 @@ class LoginForm extends Component {
       expires: 30,
       path: '/',
     })
-    this.setState({redirectToHome: true}) 
+    this.setState({isLoggedIn: true})
   }
 
   onSubmitFailure = errorMsg => {
@@ -79,13 +79,13 @@ class LoginForm extends Component {
     return (
       <>
         <label className="label" htmlFor="password">
-          Password
+          PASSWORD
         </label>
         <input
-          className="user-input"
-          id="password"
           type="password"
+          id="password"
           placeholder="Password"
+          className="user-input"
           value={password}
           onChange={this.onChangePassword}
         />
@@ -94,11 +94,10 @@ class LoginForm extends Component {
   }
 
   render() {
-    const {showSubmitError, errorMsg, redirectToHome} = this.state
-    const jwtToken = Cookies.get('jwt_token')
+    const {showSubmitError, errorMsg, isLoggedIn} = this.state
 
-    if (jwtToken !== undefined || redirectToHome) {
-      return <Navigate to="/" />
+    if (isLoggedIn) {
+      return <Navigate to="/" replace />
     }
 
     return (
@@ -112,10 +111,10 @@ class LoginForm extends Component {
           <form className="form-container" onSubmit={this.onSubmitForm}>
             <div className="input-container">{this.renderUsername()}</div>
             <div className="input-container">{this.renderPassword()}</div>
-            <button className="login-button" type="submit">
+            <button type="submit" className="login-button">
               Login
             </button>
-            {showSubmitError && <p className="error-msg">*{errorMsg}</p>}
+            {showSubmitError && <p className="error-msg">{errorMsg}</p>}
           </form>
         </div>
       </div>

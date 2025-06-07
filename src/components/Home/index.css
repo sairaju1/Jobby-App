@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    background-color: linear-gradient(60 deg, black, white)
   }
   
   .home-container {

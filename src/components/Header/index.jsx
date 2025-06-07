@@ -1,12 +1,11 @@
 import { useNavigate, Link } from 'react-router-dom'
-import Cookies from 'js-cookie'
 import './index.css'
 
 const Header = () => {
   const navigate = useNavigate() 
 
   const onClickLogout = () => {
-    Cookies.remove('jwt_token')
+    // Add your logout logic here
     navigate('/login', { replace: true }) 
   }
 
@@ -29,7 +28,7 @@ const Header = () => {
           <li className="jon-heading home">Jobs</li>
         </Link>
       </ul>
-      <div>
+      <div className="button-container">
         <button type="button" className="logout-button" onClick={onClickLogout}>
           Logout
         </button>
